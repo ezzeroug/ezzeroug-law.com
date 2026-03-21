@@ -1,0 +1,680 @@
+﻿<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EZZEROUG EZZRAIMI &amp; PARTNERS — Attorneys at Law</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Syne:wght@400;600;700;800&family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#F7F5F0;--ink2:#FFFFFF;--gold:#B8860B;--gold2:#D4A017;--gold3:#F0C040;
+  --gold-pale:#FDF6E3;--navy:#1A2B4A;--navy2:#243656;--white:#1A1A2E;
+  --text:#2C2C3E;--dim:#6B6B80;--border:rgba(184,134,11,0.18);--shadow:0 4px 32px rgba(26,43,74,0.10);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Syne',sans-serif;background:var(--ink);color:var(--text);overflow-x:hidden;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-thumb{background:var(--gold);}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;transition:all .4s;}
+nav.scrolled{background:rgba(247,245,240,0.97);backdrop-filter:blur(20px);padding:13px 48px;border-bottom:1px solid rgba(184,134,11,.15);box-shadow:0 2px 20px rgba(26,43,74,.08);} nav.scrolled .nav-name{color:var(–navy) !important;} nav.scrolled .lbtn{border-color:rgba(26,43,74,.2);color:var(–navy2);}
+.nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.nav-logo{width:46px;height:46px;object-fit:contain;}
+.nav-name{font-family:‘Cormorant Garamond’,serif;font-size:14px;font-weight:600;color:#FFFFFF;line-height:1.2;}
+.nav-sub{font-size:8px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(–gold);}
+.nav-links{display:flex;gap:28px;list-style:none;align-items:center;}
+.nav-links a{text-decoration:none;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.8);transition:color .3s;}
+.nav-links a:hover{color:var(–gold);}
+.nav-cta-link{border:1px solid rgba(201,168,76,.4);padding:9px 20px !important;color:var(–gold) !important;}
+.nav-cta-link:hover{background:rgba(201,168,76,.1) !important;}
+.nav-lang{display:flex;gap:5px;}
+.lbtn{background:none;border:1px solid rgba(201,168,76,.2);color:var(–dim);font-family:‘Syne’,sans-serif;font-size:9px;font-weight:700;letter-spacing:1px;padding:5px 9px;cursor:pointer;transition:all .25s;text-transform:uppercase;}
+.lbtn:hover,.lbtn.active{border-color:var(–gold);color:var(–gold);background:rgba(201,168,76,.08);}
+.ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;}
+.ham span{width:24px;height:2px;background:#F5D278;display:block;border-radius:1px;}
+
+/* MOBILE MENU */
+.mob{display:none;position:fixed;inset:0;background:rgba(26,43,74,0.97);backdrop-filter:blur(20px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:32px;}
+.mob.open{display:flex;}
+.mob a{font-family:‘Cormorant Garamond’,serif;font-size:34px;font-weight:600;font-style:italic;color:#FFFFFF;text-decoration:none;transition:color .3s;}
+.mob a:hover{color:var(–gold);}
+.mob-close-btn{position:absolute;top:24px;right:24px;background:none;border:none;color:#F5D278;font-size:26px;cursor:pointer;font-weight:700;}
+.mob-lang-row{display:flex;gap:10px;margin-top:10px;}
+
+/* HERO */
+#home{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:130px 48px 80px;}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,18,32,0.82) 0%,rgba(20,38,65,0.78) 50%,rgba(15,30,55,0.85) 100%);}
+.hero-bg-img{position:absolute;inset:0;z-index:-1;overflow:hidden;}
+.hero-bg-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.45) saturate(1.1);}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.03) 1px,transparent 1px);background-size:70px 70px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 20%,transparent 75%);}
+.hero-content{position:relative;z-index:2;max-width:780px;color:#FFFFFF;}
+.hero-tag{display:flex;align-items:center;gap:14px;margin-bottom:32px;opacity:1;}
+.hero-tag-line{width:36px;height:1px;background:var(–gold);}
+.hero-tag span{font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#F5D278 !important;}
+.hero h1{font-family:‘Cormorant Garamond’,serif;font-size:clamp(44px,7vw,90px);font-weight:300;line-height:1.02;color:var(–white);margin-bottom:8px;opacity:1;}
+.hero h1 strong{font-weight:800;display:block;color:#FFFFFF !important;letter-spacing:-1px;}
+.hero h1 em{font-style:italic;color:#F5D278 !important;font-weight:400;display:block;font-size:.76em;margin-top:6px;}
+.hero-div{width:70px;height:1px;background:linear-gradient(90deg,var(–gold),transparent);margin:28px 0;opacity:1;}
+.hero-desc{font-family:‘Cairo’,sans-serif;font-size:15px;font-weight:400;color:rgba(255,255,255,.9) !important;line-height:2;max-width:520px;margin-bottom:44px;opacity:1 !important;}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;opacity:1;}
+.btn-g{display:inline-flex;align-items:center;gap:8px;background:var(–gold);color:var(–ink);text-decoration:none;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:15px 34px;transition:all .3s;cursor:pointer;border:none;font-family:‘Syne’,sans-serif;}
+.btn-g:hover{background:var(–gold2);transform:translateY(-2px);}
+.btn-o{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(201,168,76,.4);color:var(–gold);text-decoration:none;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;transition:all .3s;cursor:pointer;background:none;font-family:‘Syne’,sans-serif;}
+.btn-o:hover{border-color:var(–gold);background:rgba(201,168,76,.07);}
+.hero-stats{position:absolute;right:48px;bottom:70px;display:flex;flex-direction:column;gap:28px;opacity:1;}
+.stat-num{font-family:‘Cormorant Garamond’,serif;font-size:46px;font-weight:700;color:var(–gold);line-height:1;}
+.stat-num sup{font-size:20px;vertical-align:super;}
+.stat-lbl{font-family:‘Cairo’,sans-serif;font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(–dim);margin-top:3px;}
+.stat-sep{width:36px;height:1px;background:rgba(201,168,76,.15);margin-left:auto;}
+
+/* SECTIONS */
+section{padding:110px 48px;}
+.stag{display:inline-flex;align-items:center;gap:12px;margin-bottom:18px;}
+.stag::before{content:’’;width:26px;height:1px;background:var(–gold);}
+.stag span{font-size:9px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(–gold);}
+.stitle{font-family:‘Cormorant Garamond’,serif;font-size:clamp(30px,4.5vw,56px);font-weight:700;line-height:1.1;color:var(–navy);margin-bottom:16px;}
+.stitle em{font-style:italic;color:var(–gold2);}
+.slead{font-family:‘Cairo’,sans-serif;font-size:15px;font-weight:300;color:var(–dim);line-height:1.9;max-width:560px;margin-bottom:56px;}
+
+/* ABOUT */
+#about{background:#FFFFFF;}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+.about-visual{position:relative;}
+.logo-box{background:linear-gradient(135deg,rgba(201,168,76,.08),rgba(201,168,76,.02));border:1px solid rgba(201,168,76,.15);padding:56px;display:flex;align-items:center;justify-content:center;position:relative;}
+.logo-box::before,.logo-box::after{content:’’;position:absolute;width:18px;height:18px;border-color:var(–gold);border-style:solid;}
+.logo-box::before{top:-1px;left:-1px;border-width:2px 0 0 2px;}
+.logo-box::after{bottom:-1px;right:-1px;border-width:0 2px 2px 0;}
+.logo-box img{width:200px;object-fit:contain;}
+.about-badge{position:absolute;bottom:-18px;right:-18px;background:var(–gold);color:var(–ink);padding:18px 22px;text-align:center;}
+.badge-n{font-family:‘Cormorant Garamond’,serif;font-size:38px;font-weight:700;line-height:1;display:block;}
+.badge-t{font-size:8px;font-weight:800;letter-spacing:2px;text-transform:uppercase;display:block;margin-top:3px;}
+.about-desc{font-family:‘Cairo’,sans-serif;font-size:14px;font-weight:300;color:var(–dim);line-height:2;margin-bottom:28px;}
+.feats{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:36px;}
+.feat{display:flex;gap:12px;align-items:flex-start;padding:16px;border:1px solid rgba(201,168,76,.1);transition:all .3s;}
+.feat:hover{border-color:rgba(201,168,76,.3);background:rgba(201,168,76,.03);}
+.feat-icon{font-size:18px;flex-shrink:0;margin-top:2px;}
+.feat-text{font-family:‘Cairo’,sans-serif;font-size:12px;color:var(–text);line-height:1.6;}
+.feat-text strong{display:block;font-size:10px;letter-spacing:1px;color:var(–gold);text-transform:uppercase;margin-bottom:2px;}
+
+/* SERVICES */
+#services{background:#EEF2F8;}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:16px;}
+.srv-card{background:#FFFFFF;padding:40px 32px;position:relative;overflow:hidden;transition:all .4s;cursor:default;}
+.srv-card::after{content:’’;position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(–gold),var(–gold2));transform:scaleX(0);transition:transform .4s;}
+.srv-card:hover{background:rgba(201,168,76,.04);transform:translateY(-4px);}
+.srv-card:hover::after{transform:scaleX(1);}
+.srv-n{font-family:‘Cormorant Garamond’,serif;font-size:52px;font-weight:700;color:#B8860B;line-height:1;margin-bottom:16px;}
+.srv-icon{font-size:26px;margin-bottom:14px;}
+.srv-title{font-family:‘Cormorant Garamond’,serif;font-size:19px;font-weight:700;color:var(–navy);margin-bottom:12px;line-height:1.3;}
+.srv-desc{font-family:‘Cairo’,sans-serif;font-size:12px;font-weight:300;color:var(–dim);line-height:1.9;}
+
+/* TEAM */
+#team{background:#FFFFFF;}
+.team-top{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;margin-bottom:64px;}
+.team-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.1);}
+.tstat{background:var(–ink2);padding:32px 24px;text-align:center;}
+.tstat-n{font-family:‘Cormorant Garamond’,serif;font-size:42px;font-weight:700;color:var(–gold);line-height:1;display:block;margin-bottom:6px;}
+.tstat-l{font-family:‘Cairo’,sans-serif;font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(–dim);}
+.team-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.tcard{background:#F7F9FC;border:1px solid rgba(201,168,76,.08);padding:28px 20px;text-align:center;transition:all .3s;}
+.tcard:hover{border-color:rgba(201,168,76,.2);transform:translateY(-4px);}
+.tavatar{width:68px;height:68px;border-radius:50%;background:linear-gradient(135deg,rgba(201,168,76,.12),rgba(201,168,76,.04));border:2px solid rgba(201,168,76,.2);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:22px;}
+.trole{font-size:8px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(–gold);margin-bottom:6px;}
+.tname{font-family:‘Cormorant Garamond’,serif;font-size:15px;font-weight:700;color:var(–navy);margin-bottom:6px;}
+.tspec{font-family:‘Cairo’,sans-serif;font-size:11px;font-weight:300;color:var(–dim);line-height:1.6;}
+
+/* PUBLICATIONS */
+#publications{background:#EEF2F8;}
+.pf-wrap{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:36px;}
+.pf{background:none;border:1px solid rgba(201,168,76,.18);color:var(–dim);font-family:‘Syne’,sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:8px 16px;cursor:pointer;transition:all .25s;}
+.pf:hover,.pf.active{border-color:var(–gold);color:var(–gold);background:rgba(201,168,76,.07);}
+.pub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.pub-card{border:1px solid rgba(26,43,74,.08);padding:32px 28px;transition:all .3s;position:relative;background:#FFFFFF;box-shadow:0 2px 12px rgba(26,43,74,.05);}
+.pub-card::before{content:’’;position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(–gold),transparent);opacity:0;transition:opacity .3s;}
+.pub-card:hover{border-color:rgba(201,168,76,.22);background:rgba(201,168,76,.02);}
+.pub-card:hover::before{opacity:1;}
+.pub-card.hidden{display:none;}
+.pcat{display:inline-block;font-size:9px;font-weight:800;letter-spacing:3px;text-transform:uppercase;padding:4px 10px;border:1px solid;margin-bottom:18px;}
+.pcat-invest{color:#4A9EDB;border-color:rgba(74,158,219,.3);}
+.pcat-societe{color:#6DBF8A;border-color:rgba(109,191,138,.3);}
+.pcat-fiscal{color:#E8A84C;border-color:rgba(232,168,76,.3);}
+.pcat-contrat{color:#C97EC4;border-color:rgba(201,126,196,.3);}
+.pcat-immo{color:#E87C5A;border-color:rgba(232,124,90,.3);}
+.pcat-rh{color:#7ECFE8;border-color:rgba(126,207,232,.3);}
+.ptitle{font-family:‘Cormorant Garamond’,serif;font-size:18px;font-weight:700;color:var(–navy);line-height:1.35;margin-bottom:12px;}
+.pexcerpt{font-family:‘Cairo’,sans-serif;font-size:12px;font-weight:300;color:var(–dim);line-height:1.9;margin-bottom:18px;}
+.ptags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;}
+.ptag{font-family:‘Cairo’,sans-serif;font-size:10px;color:var(–dim);background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.1);padding:2px 9px;}
+.pmeta{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid rgba(201,168,76,.08);}
+.pdate{font-size:10px;font-weight:600;letter-spacing:1px;color:var(–dim);}
+.pread{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(–gold);background:none;border:none;cursor:pointer;font-family:‘Syne’,sans-serif;transition:letter-spacing .3s;}
+.pread:hover{letter-spacing:3px;}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);backdrop-filter:blur(8px);z-index:500;}
+.modal-overlay.open{display:block;}
+.modal-box{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-52%);width:min(760px,92vw);max-height:86vh;background:#FFFFFF;border:none;border-top:4px solid var(–gold);z-index:501;overflow-y:auto;padding:52px 48px;opacity:0;transition:all .3s;}
+.modal-box.open{display:block;transform:translate(-50%,-50%);opacity:1;}
+.modal-close{position:sticky;top:0;float:right;background:var(–gold);color:var(–ink);border:none;width:34px;height:34px;font-size:15px;font-weight:700;cursor:pointer;margin-bottom:14px;transition:background .2s;}
+.modal-close:hover{background:var(–gold2);}
+.modal-h2{font-family:‘Cormorant Garamond’,serif;font-size:clamp(20px,3vw,32px);font-weight:700;color:var(–navy);line-height:1.25;margin-bottom:18px;}
+.modal-meta{font-family:‘Cairo’,sans-serif;font-size:10px;font-weight:600;letter-spacing:2px;color:var(–gold);text-transform:uppercase;margin-bottom:24px;padding-bottom:18px;border-bottom:1px solid rgba(201,168,76,.15);}
+.modal-body h3{font-family:‘Cormorant Garamond’,serif;font-size:19px;font-weight:600;color:var(–gold2);margin:24px 0 10px;}
+.modal-body p{font-family:‘Cairo’,sans-serif;font-size:14px;font-weight:300;color:var(–dim);line-height:2;margin-bottom:14px;}
+.modal-body ul{padding-left:18px;margin-bottom:14px;}
+.modal-body ul li{font-family:‘Cairo’,sans-serif;font-size:14px;font-weight:300;color:var(–dim);line-height:2;margin-bottom:4px;}
+.modal-cta{margin-top:32px;padding-top:24px;border-top:1px solid rgba(201,168,76,.15);text-align:center;}
+.modal-cta p{font-family:‘Cairo’,sans-serif;font-size:14px;color:var(–dim);margin-bottom:14px;}
+
+/* CONTACT */
+#contact{background:#FFFFFF;}
+.contact-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:72px;align-items:start;}
+.cinfo-item{display:flex;gap:18px;align-items:flex-start;margin-bottom:30px;padding-bottom:30px;border-bottom:1px solid rgba(201,168,76,.08);}
+.cinfo-item:last-of-type{border-bottom:none;}
+.cicon{width:42px;height:42px;flex-shrink:0;border:1px solid rgba(201,168,76,.2);display:flex;align-items:center;justify-content:center;font-size:17px;background:rgba(201,168,76,.04);}
+.clabel{font-size:9px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(–gold);margin-bottom:5px;}
+.cval{font-family:‘Cairo’,sans-serif;font-size:13px;color:var(–text);line-height:1.7;}
+.cval a{color:var(–gold2);text-decoration:none;}
+.map-wrap{margin-top:28px;border:1px solid rgba(201,168,76,.12);overflow:hidden;}
+.map-wrap iframe{width:100%;height:200px;border:none;filter:invert(.88) hue-rotate(180deg) brightness(.85);display:block;}
+.form-title{font-family:‘Cormorant Garamond’,serif;font-size:26px;font-weight:600;color:var(–white);margin-bottom:28px;}
+.form-title em{font-style:italic;color:var(–gold2);}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+.fg{margin-bottom:14px;}
+.fg label{display:block;font-size:9px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(–gold);margin-bottom:7px;}
+.fg input,.fg select,.fg textarea{width:100%;background:#F8F7F3;border:1px solid rgba(184,134,11,.2);color:var(–text);font-family:‘Cairo’,sans-serif;font-size:13px;padding:13px 15px;outline:none;transition:border-color .3s;appearance:none;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(–gold);}
+.fg input::placeholder,.fg textarea::placeholder{color:var(–dim);}
+.fg textarea{resize:vertical;min-height:110px;}
+.fg select option{background:var(–ink2);}
+.form-note{font-family:‘Cairo’,sans-serif;font-size:11px;color:var(–dim);margin-top:10px;text-align:center;line-height:1.6;}
+
+/* FOOTER */
+footer{background:var(–navy);padding:56px 48px 28px;border-top:4px solid var(–gold);}
+.foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:56px;margin-bottom:44px;}
+.foot-logo{display:flex;align-items:center;gap:12px;margin-bottom:18px;}
+.foot-logo img{width:48px;object-fit:contain;}
+.foot-tagline{font-family:‘Cairo’,sans-serif;font-size:13px;font-weight:300;color:var(–dim);line-height:1.9;max-width:270px;}
+.foot-col h4{font-size:9px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(–gold);margin-bottom:18px;}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.foot-col ul li a{font-family:‘Cairo’,sans-serif;font-size:13px;color:var(–dim);text-decoration:none;transition:color .3s;}
+.foot-col ul li a:hover{color:var(–gold);}
+.foot-bot{padding-top:20px;border-top:1px solid rgba(201,168,76,.08);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.foot-copy,.foot-bar{font-family:‘Cairo’,sans-serif;font-size:11px;color:var(–dim);}
+.foot-copy strong{color:var(–gold);}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeLeft{from{opacity:0;transform:translateX(26px);}to{opacity:1;transform:translateX(0);}}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
+.rv.vis{opacity:1;transform:translateY(0);}
+.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}.d4{transition-delay:.4s;}.d5{transition-delay:.5s;}
+
+/* LANG */
+[data-l]{display:none;}
+[data-l].on{display:block;}
+[data-li]{display:none;}
+[data-li].on{display:inline;}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+nav,nav.scrolled{padding:16px 24px;}
+#home{padding:120px 24px 70px;}
+section{padding:80px 24px;}
+.about-grid,.contact-grid,.team-top{grid-template-columns:1fr;gap:40px;}
+.srv-grid,.pub-grid{grid-template-columns:1fr 1fr;}
+.team-cards{grid-template-columns:repeat(2,1fr);}
+.hero-stats{position:static;flex-direction:row;gap:24px;margin-top:40px;flex-wrap:wrap;}
+.stat-sep{margin-left:0;}
+.foot-top{grid-template-columns:1fr 1fr;gap:36px;}
+}
+@media(max-width:680px){
+.nav-links,.nav-lang{display:none;}
+.ham{display:flex;}
+#home{padding:100px 20px 56px;}
+section{padding:64px 20px;}
+.srv-grid,.pub-grid{grid-template-columns:1fr;}
+.team-cards{grid-template-columns:1fr 1fr;}
+.frow{grid-template-columns:1fr;}
+footer{padding:44px 20px 20px;}
+.foot-top{grid-template-columns:1fr;}
+.foot-bot{flex-direction:column;text-align:center;}
+.hero-stats{display:none;}
+.modal-box{padding:28px 18px;}
+}
+
+.mob-lang-row{display:flex;gap:12px;margin-top:16px;}
+.mob .lbtn{border:2px solid rgba(255,255,255,0.5);color:#FFFFFF;background:rgba(255,255,255,0.1);font-size:13px;padding:10px 18px;display:inline-flex;align-items:center;gap:7px;}
+.mob .lbtn:hover,.mob .lbtn.active{border-color:#F5D278;color:#F5D278;background:rgba(245,210,120,0.15);}
+
+.phone-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.phone-type-badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:12px;white-space:nowrap;}
+.phone-fix{background:#EEF2F8;color:#1A2B4A;border:1px solid rgba(26,43,74,.2);}
+.phone-mob{background:#FDF6E3;color:#B8860B;border:1px solid rgba(184,134,11,.25);}
+.wa-btn{display:inline-flex;align-items:center;gap:9px;margin-top:12px;background:#25D366;color:#fff;text-decoration:none;font-family:‘Cairo’,sans-serif;font-size:12px;font-weight:700;padding:10px 20px;border-radius:24px;transition:all .3s;box-shadow:0 4px 16px rgba(37,211,102,.3);}
+.wa-btn:hover{background:#1ebe5d;transform:translateY(-2px);}
+
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:900;background:#25D366;color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 6px 24px rgba(37,211,102,.45);text-decoration:none;transition:all .3s;animation:waPulse 2.5s infinite;}
+.wa-float:hover{background:#1ebe5d;transform:scale(1.1);}
+@keyframes waPulse{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,.45);}50%{box-shadow:0 6px 32px rgba(37,211,102,.7);}}
+
+.map-wrap{margin-top:28px;border:1px solid rgba(184,134,11,.2);overflow:hidden;border-radius:4px;}
+.map-link-btn{display:block;text-decoration:none;transition:all .3s;}
+.map-link-btn:hover .map-preview{background:var(–gold-pale);}
+.map-preview{background:#F7F9FC;padding:24px 20px;display:flex;gap:16px;align-items:flex-start;border-left:4px solid var(–gold);transition:background .3s;}
+.map-pin{font-size:32px;flex-shrink:0;}
+.map-name{font-family:‘Syne’,sans-serif;font-size:13px;font-weight:700;color:var(–navy);margin-bottom:5px;}
+.map-addr{font-family:‘Cairo’,sans-serif;font-size:12px;color:#555568;line-height:1.7;margin-bottom:10px;}
+.map-open-txt{display:inline-flex;align-items:center;font-family:‘Syne’,sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(–gold);background:var(–gold-pale);padding:6px 14px;border:1px solid rgba(184,134,11,.25);}
+
+.social-bar{display:flex;gap:10px;align-items:center;margin-top:18px;flex-wrap:wrap;}
+.social-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.65);font-family:‘Syne’,sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;text-decoration:none;transition:all .3s;border-radius:2px;}
+.social-btn:hover{border-color:var(–gold3);color:var(–gold3);}
+
+.booking-banner{background:linear-gradient(135deg,var(–navy) 0%,#243656 100%);padding:72px 48px;text-align:center;position:relative;overflow:hidden;}
+.booking-banner::before{content:’’;position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 0%,rgba(201,168,76,.12),transparent);}
+.booking-title{font-family:‘Cormorant Garamond’,serif;font-size:clamp(26px,4vw,44px);font-weight:600;color:#FFFFFF;margin-bottom:12px;position:relative;}
+.booking-title em{font-style:italic;color:#F5D278;}
+.booking-sub{font-family:‘Cairo’,sans-serif;font-size:15px;color:rgba(255,255,255,.7);margin-bottom:36px;position:relative;}
+.booking-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative;}
+.booking-btn-main{display:inline-flex;align-items:center;gap:10px;background:var(–gold);color:var(–navy);font-family:‘Syne’,sans-serif;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:16px 32px;text-decoration:none;transition:all .3s;}
+.booking-btn-main:hover{background:#F5D278;transform:translateY(-2px);}
+.booking-btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;font-family:‘Syne’,sans-serif;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:16px 28px;text-decoration:none;transition:all .3s;}
+.booking-btn-wa:hover{background:#1ebe5d;transform:translateY(-2px);}
+.booking-btn-outline{display:inline-flex;align-items:center;gap:10px;border:2px solid rgba(255,255,255,.4);color:rgba(255,255,255,.85);font-family:‘Syne’,sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:14px 20px;text-decoration:none;transition:all .3s;}
+.booking-btn-outline:hover{border-color:#F5D278;color:#F5D278;}
+@media(max-width:680px){.booking-banner{padding:48px 20px;}.booking-btns{flex-direction:column;align-items:center;}}
+
+#reviews{background:#F7F9FC;padding:100px 48px;}
+.reviews-global{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:56px;}
+.reviews-score{font-family:‘Cormorant Garamond’,serif;font-size:64px;font-weight:700;color:var(–navy);line-height:1;}
+.reviews-stars{color:#F5C518;font-size:28px;letter-spacing:2px;line-height:1;margin-bottom:4px;}
+.reviews-count{font-family:‘Cairo’,sans-serif;font-size:12px;font-weight:600;color:var(–dim);letter-spacing:2px;text-transform:uppercase;}
+.reviews-source{display:inline-flex;align-items:center;gap:8px;margin-top:6px;font-family:‘Cairo’,sans-serif;font-size:11px;font-weight:700;color:#4285F4;text-decoration:none;letter-spacing:1px;}
+.reviews-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+.rev-card{background:#FFFFFF;border:1px solid rgba(26,43,74,.07);padding:32px;position:relative;transition:all .3s;box-shadow:0 2px 12px rgba(26,43,74,.05);}
+.rev-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(26,43,74,.1);border-color:rgba(184,134,11,.2);}
+.rev-card::before{content:’"’;font-family:‘Cormorant Garamond’,serif;font-size:72px;font-weight:700;color:#B8860B;position:absolute;top:-8px;left:16px;line-height:1;opacity:.6;}
+.rev-top{display:flex;align-items:center;gap:14px;margin-bottom:16px;}
+.rev-avatar{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:‘Syne’,sans-serif;font-size:18px;font-weight:800;color:#fff;flex-shrink:0;}
+.rev-av-n{background:linear-gradient(135deg,#4A6FA5,#1A2B4A);}
+.rev-av-a{background:linear-gradient(135deg,#2E7D52,#1B5E3B);}
+.rev-av-l{background:linear-gradient(135deg,#7B4FA5,#4A1A6B);}
+.rev-av-z{background:linear-gradient(135deg,#C47A1E,#8B5010);}
+.rev-name{font-family:‘Syne’,sans-serif;font-size:13px;font-weight:700;color:var(–navy);margin-bottom:2px;}
+.rev-badge{font-family:‘Cairo’,sans-serif;font-size:10px;color:var(–dim);}
+.rev-stars{color:#E6A800;font-size:18px;margin-bottom:14px;letter-spacing:2px;text-shadow:0 1px 3px rgba(0,0,0,.15);}
+.rev-date{font-family:‘Cairo’,sans-serif;font-size:10px;color:var(–dim);margin-left:8px;font-style:italic;}
+.rev-text{font-family:‘Cairo’,sans-serif;font-size:13px;color:#3A3A55;line-height:1.9;}
+.rev-gmap{display:inline-flex;align-items:center;gap:5px;margin-top:14px;font-size:10px;font-weight:700;letter-spacing:1px;color:#4285F4;font-family:‘Syne’,sans-serif;text-decoration:none;opacity:.7;}
+.reviews-cta{text-align:center;margin-top:44px;}
+.reviews-cta a{display:inline-flex;align-items:center;gap:10px;background:var(–navy);color:#fff;text-decoration:none;font-family:‘Syne’,sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 32px;transition:all .3s;}
+.reviews-cta a:hover{background:var(–gold);color:var(–navy);}
+@media(max-width:680px){.reviews-grid{grid-template-columns:1fr;}#reviews{padding:64px 20px;}}
+
+#faq{padding:64px 20px;}}
+
+.pub-img-wrap{overflow:hidden;margin:-32px -28px 0;height:160px;position:relative;}
+.pub-img{width:100%;height:100%;object-fit:cover;filter:brightness(.75) saturate(1.05);display:block;transition:transform .5s;}
+.pub-card:hover .pub-img{transform:scale(1.04);}
+.guide-icon-wrap{position:absolute;bottom:-20px;left:24px;width:48px;height:48px;border-radius:50%;box-shadow:0 4px 16px rgba(26,43,74,.2);border:2px solid rgba(201,168,76,.4);background:#fff;overflow:hidden;z-index:2;}
+.guide-icon-wrap svg{width:48px;height:48px;}
+.guide-label-chip{position:absolute;bottom:-20px;right:24px;background:var(–navy);color:var(–gold3);font-family:‘Syne’,sans-serif;font-size:8px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:5px 12px;border-radius:12px;z-index:2;white-space:nowrap;}
+.pub-img-wrap + .pcat{margin-top:28px;}
+
+.sources-inner{gap:10px;}.source-link{font-size:10px;padding:6px 10px;}}
+
+/* ── REVIEWS + MAP MERGED ── */
+#trust{background:#F7F9FC;padding:100px 48px;}
+.trust-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+.trust-left{}
+.trust-map-wrap{border:1px solid rgba(184,134,11,.2);overflow:hidden;border-radius:4px;margin-bottom:24px;}
+.trust-map-link{display:block;text-decoration:none;transition:all .3s;}
+.trust-map-link:hover .trust-map-preview{background:var(–gold-pale);}
+.trust-map-preview{background:#EEF2F8;padding:28px 20px;display:flex;gap:16px;align-items:flex-start;border-left:4px solid var(–gold);transition:background .3s;}
+.trust-map-pin{font-size:36px;flex-shrink:0;}
+.trust-map-name{font-family:‘Syne’,sans-serif;font-size:13px;font-weight:700;color:var(–navy);margin-bottom:5px;}
+.trust-map-addr{font-family:‘Cairo’,sans-serif;font-size:12px;color:#555568;line-height:1.7;margin-bottom:10px;}
+.trust-map-btn{display:inline-flex;align-items:center;gap:6px;font-family:‘Syne’,sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(–gold);background:var(–gold-pale);padding:7px 16px;border:1px solid rgba(184,134,11,.3);transition:all .3s;}
+.trust-map-link:hover .trust-map-btn{background:var(–gold);color:var(–navy);}
+.trust-score-bar{display:flex;align-items:center;gap:16px;background:var(–navy);padding:20px 24px;border-radius:2px;}
+.trust-score-num{font-family:‘Cormorant Garamond’,serif;font-size:52px;font-weight:700;color:#F5D278;line-height:1;}
+.trust-score-right{}
+.trust-stars{color:#E6A800;font-size:26px;letter-spacing:2px;margin-bottom:4px;text-shadow:0 1px 4px rgba(0,0,0,.1);}
+.trust-score-label{font-family:‘Cairo’,sans-serif;font-size:11px;color:rgba(255,255,255,.6);letter-spacing:1px;}
+.trust-score-gmaps{display:inline-flex;align-items:center;gap:6px;margin-top:6px;font-family:‘Cairo’,sans-serif;font-size:10px;font-weight:700;color:#4285F4;text-decoration:none;}
+.trust-right{}
+.rev-card{background:#FFFFFF;border:1px solid rgba(26,43,74,.08);padding:24px;position:relative;transition:all .3s;box-shadow:0 2px 8px rgba(26,43,74,.05);margin-bottom:16px;}
+.rev-card:last-child{margin-bottom:0;}
+.rev-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(26,43,74,.1);border-color:rgba(184,134,11,.2);}
+.rev-card::before{content:’"’;font-family:‘Cormorant Garamond’,serif;font-size:72px;font-weight:700;color:#B8860B;position:absolute;top:-8px;left:16px;line-height:1;opacity:.6;}
+.rev-top{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+.rev-avatar{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:‘Syne’,sans-serif;font-size:16px;font-weight:800;color:#fff;flex-shrink:0;}
+.rev-av-n{background:linear-gradient(135deg,#4A6FA5,#1A2B4A);}
+.rev-av-a{background:linear-gradient(135deg,#2E7D52,#1B5E3B);}
+.rev-av-l{background:linear-gradient(135deg,#7B4FA5,#4A1A6B);}
+.rev-av-z{background:linear-gradient(135deg,#C47A1E,#8B5010);}
+.rev-name{font-family:‘Syne’,sans-serif;font-size:12px;font-weight:700;color:var(–navy);}
+.rev-badge{font-family:‘Cairo’,sans-serif;font-size:10px;color:var(–dim);}
+.rev-stars{color:#F5C518;font-size:12px;margin-bottom:8px;}
+.rev-date{font-family:‘Cairo’,sans-serif;font-size:10px;color:var(–dim);margin-left:6px;font-style:italic;}
+.rev-text{font-family:‘Cairo’,sans-serif;font-size:12px;color:#3A3A55;line-height:1.8;}
+.rev-all-link{display:flex;justify-content:center;margin-top:20px;}
+.rev-all-link a{display:inline-flex;align-items:center;gap:8px;background:var(–navy);color:#fff;text-decoration:none;font-family:‘Syne’,sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:12px 28px;transition:all .3s;}
+.rev-all-link a:hover{background:var(–gold);color:var(–navy);}
+@media(max-width:900px){.trust-grid{grid-template-columns:1fr;}#trust{padding:72px 24px;}}
+@media(max-width:480px){#trust{padding:56px 20px;}}
+
+.trust-map-wrap{border:1px solid rgba(184,134,11,.2);overflow:hidden;border-radius:4px;margin-bottom:24px;}
+.trust-map-open-btn{display:flex;align-items:center;gap:10px;background:var(–navy);color:rgba(255,255,255,.85);text-decoration:none;font-family:‘Cairo’,sans-serif;font-size:12px;font-weight:600;padding:14px 20px;transition:all .3s;border-top:2px solid rgba(201,168,76,.2);}
+.trust-map-open-btn:hover{background:#243656;color:var(–gold3);}
+.trust-map-open-btn svg{color:var(–gold);flex-shrink:0;}
+
+/* ── JUSTICE STRIP ── */
+.justice-strip{display:grid;grid-template-columns:1fr 1fr;height:320px;overflow:hidden;}
+.justice-img{position:relative;overflow:hidden;}
+.justice-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;filter:brightness(.82) saturate(1.05);}
+.justice-img:hover img{transform:scale(1.05);}
+.justice-img-label{position:absolute;bottom:0;left:0;right:0;padding:18px 24px;background:linear-gradient(0deg,rgba(10,18,32,.75),transparent);font-family:‘Syne’,sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(–gold3);}
+@media(max-width:680px){.justice-strip{grid-template-columns:1fr;height:auto;}.justice-img{height:220px;}}
+
+.about-economy-imgs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:32px;}
+.about-econ-img{position:relative;overflow:hidden;height:160px;border-radius:2px;}
+.about-econ-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.78) saturate(1.1);transition:transform .5s;}
+.about-econ-img:hover img{transform:scale(1.06);}
+.about-econ-img span{position:absolute;bottom:10px;left:12px;font-family:‘Cairo’,sans-serif;font-size:10px;font-weight:700;color:var(–gold3);letter-spacing:1px;text-transform:uppercase;}
+
+.services-economy-banner{width:100%;height:200px;overflow:hidden;position:relative;margin-bottom:32px;}
+.services-economy-banner img{width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:brightness(.6) saturate(1.15);}
+.services-economy-banner-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;}
+.services-economy-banner-overlay h3{font-family:‘Cormorant Garamond’,serif;font-size:clamp(22px,3vw,36px);font-weight:600;color:#FFFFFF;text-align:center;}
+.services-economy-banner-overlay h3 em{font-style:italic;color:#F5D278;}
+@media(max-width:680px){.services-economy-banner{height:150px;}}
+
+/* ── INTRO BANNER ── */
+.intro-banner{background:var(–navy);padding:64px 48px;position:relative;overflow:hidden;}
+.intro-banner::before{content:’’;position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 50%,rgba(201,168,76,.08),transparent);}
+.intro-inner{max-width:1000px;margin:0 auto;position:relative;z-index:1;}
+.intro-top{display:flex;align-items:flex-start;gap:40px;margin-bottom:44px;}
+.intro-logo-wrap{flex-shrink:0;}
+.intro-logo-wrap img{width:90px;height:90px;object-fit:contain;filter:drop-shadow(0 0 16px rgba(201,168,76,.3));}
+.intro-headline{}
+.intro-firm-name{font-family:‘Cormorant Garamond’,serif;font-size:clamp(20px,2.5vw,30px);font-weight:700;color:#FFFFFF;margin-bottom:6px;line-height:1.2;}
+.intro-firm-sub{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(–gold3);margin-bottom:14px;}
+.intro-desc{font-family:‘Cairo’,sans-serif;font-size:14px;font-weight:300;color:rgba(255,255,255,.8);line-height:2;max-width:720px;}
+.intro-divider{width:60px;height:2px;background:var(–gold);margin:28px 0;}
+.intro-services-title{font-family:‘Syne’,sans-serif;font-size:10px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(–gold3);margin-bottom:20px;}
+.intro-services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.intro-srv{background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.15);padding:16px;transition:all .3s;}
+.intro-srv:hover{background:rgba(201,168,76,.08);border-color:rgba(201,168,76,.35);}
+.intro-srv-icon{font-size:22px;margin-bottom:8px;display:block;}
+.intro-srv-title{font-family:‘Syne’,sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(–gold3);margin-bottom:5px;}
+.intro-srv-desc{font-family:‘Cairo’,sans-serif;font-size:11px;color:rgba(255,255,255,.55);line-height:1.7;}
+.intro-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-top:36px;padding-top:24px;border-top:1px solid rgba(201,168,76,.15);}
+.intro-territory{font-family:‘Cairo’,sans-serif;font-size:12px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px;}
+.intro-territory span{color:var(–gold3);font-weight:600;}
+.intro-cta-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.intro-btn-main{display:inline-flex;align-items:center;gap:8px;background:var(–gold);color:var(–navy);font-family:‘Syne’,sans-serif;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:12px 28px;text-decoration:none;transition:all .3s;cursor:pointer;border:none;}
+.intro-btn-main:hover{background:var(–gold3);transform:translateY(-2px);}
+.intro-btn-sec{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(201,168,76,.4);color:rgba(255,255,255,.8);font-family:‘Syne’,sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:11px 22px;text-decoration:none;transition:all .3s;cursor:pointer;background:none;}
+.intro-btn-sec:hover{border-color:var(–gold3);color:var(–gold3);}
+@media(max-width:900px){.intro-services-grid{grid-template-columns:repeat(2,1fr);}.intro-banner{padding:48px 24px;}}
+@media(max-width:480px){.intro-services-grid{grid-template-columns:1fr 1fr;}.intro-top{flex-direction:column;gap:20px;}.intro-logo-wrap img{width:70px;height:70px;}}
+
+.viber-btn{display:inline-flex;align-items:center;gap:9px;margin-top:10px;background:#7360F2;color:#fff;text-decoration:none;font-family:‘Cairo’,sans-serif;font-size:12px;font-weight:700;padding:10px 20px;border-radius:24px;transition:all .3s;box-shadow:0 4px 16px rgba(115,96,242,.3);}
+.viber-btn:hover{background:#5B4BD4;transform:translateY(-2px);}
+.booking-btn-viber{display:inline-flex;align-items:center;gap:10px;background:#7360F2;color:#fff;font-family:‘Syne’,sans-serif;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:16px 28px;text-decoration:none;transition:all .3s;}
+.booking-btn-viber:hover{background:#5B4BD4;transform:translateY(-2px);}
+</style>
+
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+
+<div class="mob" id="mobMenu">
+  <button class="mob-close-btn" id="mobCloseBtn">&#10005;</button>
+  <a id="mob-home-link"><span data-l="fr" class="on">Accueil</span><span data-l="ar">الرئيسية</span><span data-l="en">Home</span></a>
+  <a id="mob-about-link"><span data-l="fr" class="on">Cabinet</span><span data-l="ar">المكتب</span><span data-l="en">About</span></a>
+  <a id="mob-services-link"><span data-l="fr" class="on">Services</span><span data-l="ar">الخدمات</span><span data-l="en">Services</span></a>
+  <a id="mob-team-link"><span data-l="fr" class="on">Équipe</span><span data-l="ar">الفريق</span><span data-l="en">Team</span></a>
+  <a id="mob-trust-link"><span data-l="fr" class="on">Avis &amp; Localisation</span><span data-l="ar">التقييمات والموقع</span><span data-l="en">Reviews &amp; Location</span></a>
+  <a id="mob-pub-link"><span data-l="fr" class="on">Publications</span><span data-l="ar">المقالات</span><span data-l="en">Insights</span></a>
+  <a id="mob-contact-link"><span data-l="fr" class="on">Contact</span><span data-l="ar">التواصل</span><span data-l="en">Contact</span></a>
+  <div class="mob-lang-row">
+    <button class="lbtn active" id="mlbtn-fr">🇫🇷 FR</button>
+    <button class="lbtn" id="mlbtn-ar">🇩🇿 AR</button>
+    <button class="lbtn" id="mlbtn-en">🇬🇧 EN</button>
+  </div>
+</div>
+
+<!-- NAV -->
+
+<nav id="navbar">
+  <a class="nav-brand" id="nav-brand-link">
+    <img class="nav-logo" id="site-logo" alt="EE Logo">
+    <div><div class="nav-name">Ezzeroug Ezzraimi</div><div class="nav-sub">&amp; Partners</div></div>
+  </a>
+  <ul class="nav-links">
+    <li><a id="nl-about"><span data-l="fr" class="on">Cabinet</span><span data-l="ar">المكتب</span><span data-l="en">About</span></a></li>
+    <li><a id="nl-services"><span data-l="fr" class="on">Services</span><span data-l="ar">الخدمات</span><span data-l="en">Services</span></a></li>
+    <li><a id="nl-team"><span data-l="fr" class="on">Équipe</span><span data-l="ar">الفريق</span><span data-l="en">Team</span></a></li>
+    <li><a id="nl-trust"><span data-l="fr" class="on">Avis &amp; Localisation</span><span data-l="ar">التقييمات والموقع</span><span data-l="en">Reviews &amp; Location</span></a></li>
+    <li><a id="nl-pub"><span data-l="fr" class="on">Publications</span><span data-l="ar">المقالات</span><span data-l="en">Insights</span></a></li>
+    <li><a class="nav-cta-link" id="nl-contact"><span data-l="fr" class="on">Nous contacter</span><span data-l="ar">تواصل معنا</span><span data-l="en">Contact Us</span></a></li>
+  </ul>
+  <div class="nav-lang">
+    <button class="lbtn active" id="lbtn-fr">🇫🇷 FR</button>
+    <button class="lbtn" id="lbtn-ar">🇩🇿 AR</button>
+    <button class="lbtn" id="lbtn-en">🇬🇧 EN</button>
+  </div>
+  <button class="ham" id="hamBtn"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+
+<section id="home">
+  <div class="hero-bg-img"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=85&auto=format" alt="" loading="eager"></div>
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-tag">
+      <div class="hero-tag-line"></div>
+      <span><span data-l="fr" class="on">Cabinet d'Avocats &amp; Conseil Juridique</span><span data-l="ar">مكتب محاماة واستشارات قانونية</span><span data-l="en">Law Firm &amp; Legal Advisory</span></span>
+    </div>
+    <h1>
+      <strong><span data-l="fr" class="on">Excellence<br>Juridique</span><span data-l="ar">التميز<br>القانوني</span><span data-l="en">Legal<br>Excellence</span></strong>
+      <em><span data-l="fr" class="on">au service de vos ambitions.</span><span data-l="ar">في خدمة طموحاتكم.</span><span data-l="en">at the heart of your ambitions.</span></em>
+    </h1>
+    <div class="hero-div"></div>
+    <p class="hero-desc">
+      <span data-l="fr" class="on">Cabinet intégré de conseil juridique, fiscal et arbitral — fondé sur 16 ans d'expertise au service des entreprises, banques et investisseurs en Algérie et à l'international.</span>
+      <span data-l="ar">مكتب استشاري متكامل في القانون والضرائب والتحكيم — مبني على 16 سنة خبرة في خدمة الشركات والبنوك والمستثمرين في الجزائر وعلى المستوى الدولي.</span>
+      <span data-l="en">An integrated legal, tax and arbitration advisory firm — built on 16 years of expertise serving companies, banks and investors in Algeria and internationally.</span>
+    </p>
+    <div class="hero-btns">
+      <button class="btn-g" id="hero-cta-btn"><span data-l="fr" class="on">Consultation gratuite</span><span data-l="ar">استشارة مجانية</span><span data-l="en">Free Consultation</span></button>
+      <button class="btn-o" id="hero-srv-btn"><span data-l="fr" class="on">Nos expertises</span><span data-l="ar">خدماتنا</span><span data-l="en">Our Expertise</span></button>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">16<sup>+</sup></div><div class="stat-lbl"><span data-l="fr" class="on">Ans d'expérience</span><span data-l="ar">سنة خبرة</span><span data-l="en">Years</span></div></div>
+      <div class="stat-sep"></div>
+      <div><div class="stat-num">7</div><div class="stat-lbl"><span data-l="fr" class="on">Domaines</span><span data-l="ar">مجالات</span><span data-l="en">Practice areas</span></div></div>
+      <div class="stat-sep"></div>
+      <div><div class="stat-num">5</div><div class="stat-lbl"><span data-l="fr" class="on">Juristes</span><span data-l="ar">متخصصون</span><span data-l="en">Specialists</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+
+<!-- ══ INTRO BANNER ══ -->
+
+<div class="intro-banner" id="intro">
+  <div class="intro-inner">
+
+```
+<div class="intro-top">
+  <div class="intro-logo-wrap">
+    <img id="intro-logo" alt="EE Logo">
+  </div>
+  <div class="intro-headline">
+    <div class="intro-firm-name">EZZEROUG EZZRAIMI &amp; PARTNERS</div>
+    <div class="intro-firm-sub">Attorneys at Law &amp; Legal Associates — Blida, Algérie</div>
+    <p class="intro-desc">
+      <span data-l="fr" class="on">Cabinet d'avocats et de conseil juridique intégré, admis auprès de la <strong style="color:#F5D278;">Cour Suprême</strong> et du <strong style="color:#F5D278;">Conseil d'État</strong>, fort de <strong style="color:#F5D278;">16 ans d'expérience</strong> au service des entreprises, institutions financières, opérateurs économiques et investisseurs étrangers. Nous intervenons dans tous les domaines du droit des affaires, du contentieux et du conseil stratégique, sur l'ensemble du territoire national.</span>
+      <span data-l="ar">مكتب محاماة واستشارات قانونية متكامل، مقبول لدى <strong style="color:#F5D278;">المحكمة العليا</strong> و<strong style="color:#F5D278;">مجلس الدولة</strong>، بخبرة تمتد لـ<strong style="color:#F5D278;">16 سنة</strong> في خدمة الشركات والمؤسسات المالية والمتعاملين الاقتصاديين والمستثمرين الأجانب. نتدخل في جميع مجالات قانون الأعمال والتقاضي والاستشارة الاستراتيجية، على كامل التراب الوطني.</span>
+      <span data-l="en">An integrated law and legal advisory firm, admitted to the <strong style="color:#F5D278;">Supreme Court</strong> and <strong style="color:#F5D278;">Council of State</strong>, with <strong style="color:#F5D278;">16 years of experience</strong> serving companies, financial institutions, economic operators and foreign investors. We operate across all areas of business law, litigation and strategic advisory, throughout the national territory.</span>
+    </p>
+  </div>
+</div>
+
+<div class="intro-divider"></div>
+
+<div class="intro-services-title">
+  <span data-l="fr" class="on">Nos domaines d'intervention</span>
+  <span data-l="ar">مجالات تدخلنا</span>
+  <span data-l="en">Our practice areas</span>
+</div>
+
+<div class="intro-services-grid">
+
+  <div class="intro-srv">
+    <span class="intro-srv-icon">⚖️</span>
+    <div class="intro-srv-title"><span data-l="fr" class="on">Droit des affaires</span><span data-l="ar">قانون الأعمال</span><span data-l="en">Business Law</span></div>
+    <div class="intro-srv-desc"><span data-l="fr" class="on">Création, restructuration, cession et dissolution de sociétés. Pactes d'associés et contrats commerciaux.</span><span data-l="ar">تأسيس الشركات وإعادة هيكلتها والتنازل عنها وتصفيتها. عقود الشركاء والعقود التجارية.</span><span data-l="en">Company formation, restructuring, transfer and dissolution. Shareholder agreements and commercial contracts.</span></div>
+  </div>
+
+  <div class="intro-srv">
+    <span class="intro-srv-icon">🛢️</span>
+    <div class="intro-srv-title"><span data-l="fr" class="on">Hydrocarbures & Énergie</span><span data-l="ar">المحروقات والطاقة</span><span data-l="en">Hydrocarbons & Energy</span></div>
+    <div class="intro-srv-desc"><span data-l="fr" class="on">Contrats pétroliers et gaziers, partenariats avec Sonatrach, régime juridique des hydrocarbures, permis d'exploration et de production.</span><span data-l="ar">عقود النفط والغاز، الشراكات مع سوناطراك، النظام القانوني للمحروقات، تراخيص الاستكشاف والإنتاج.</span><span data-l="en">Oil and gas contracts, Sonatrach partnerships, hydrocarbons legal regime, exploration and production permits.</span></div>
+  </div>
+
+  <div class="intro-srv">
+    <span class="intro-srv-icon">🌍</span>
+    <div class="intro-srv-title"><span data-l="fr" class="on">Investissement étranger</span><span data-l="ar">الاستثمار الأجنبي</span><span data-l="en">Foreign Investment</span></div>
+    <div class="intro-srv-desc"><span data-l="fr" class="on">Accompagnement complet des IDE, Code de l'investissement 2022, agréments AAPI, montages juridiques transfrontaliers.</span><span data-l="ar">مرافقة شاملة للاستثمار الأجنبي المباشر، قانون الاستثمار 2022، اعتمادات AAPI، هياكل قانونية عابرة للحدود.</span><span data-l="en">Comprehensive FDI support, Investment Code 2022, AAPI approvals, cross-border legal structures.</span></div>
+  </div>
+
+  <div class="intro-srv">
+    <span class="intro-srv-icon">🏛️</span>
+    <div class="intro-srv-title"><span data-l="fr" class="on">Contentieux & Arbitrage</span><span data-l="ar">التقاضي والتحكيم</span><span data-l="en">Litigation & Arbitration</span></div>
+    <div class="intro-srv-desc"><span data-l="fr" class="on">Représentation devant toutes juridictions algériennes. Arbitrage national et international, médiation et règlement amiable.</span><span data-l="ar">التمثيل أمام جميع الجهات القضائية الجزائرية. التحكيم الوطني والدولي، الوساطة والتسوية الودية.</span><span data-l="en">Representation before all Algerian courts. National and international arbitration, mediation and amicable settlement.</span></div>
+  </div>
+
+  <div class="intro-srv">
+    <span class="intro-srv-icon">💰</span>
+    <div class="intro-srv-title"><span data-l="fr" class="on">Fiscal & Douanier</span><span data-l="ar">الضرائب والجمارك</span><span data-l="en">Tax & Customs</span></div>
+    <div class="intro-srv-desc"><span data-l="fr" class="on">Optimisation fiscale, contentieux fiscal et douanier, régimes préférentiels, assistance lors des contrôles.</span><span data-l="ar">التحسين الضريبي، النزاعات الجبائية والجمركية، الأنظمة التفضيلية، المساعدة خلال المراجعات.</span><span data-l="en">Tax optimization, tax and customs disputes, preferential regimes, audit assistance.</span></div>
+  </div>
+
+  <div class="intro-srv">
+    <span class="intro-srv-icon">🏗️</span>
+    <div class="intro-srv-title"><span data-l="fr" class="on">Immobilier & Foncier</span><span data-l="ar">العقارات والأراضي</span><span data-l="en">Real Estate & Land</span></div>
+    <div class="intro-srv-desc"><span data-l="fr" class="on">Transactions immobilières, litiges fonciers, permis de construire, baux commerciaux et gestion du patrimoine.</span><span data-l="ar">المعاملات العقارية، النزاعات العقارية والأراضي، رخص البناء، عقود الإيجار التجاري وإدارة الأصول.</span><span data-l="en">Real estate transactions, property disputes, building permits, commercial leases and asset management.</span></div>
+  </div>
+
+  <div class="intro-srv">
+    <span class="intro-srv-icon">📋</span>
+    <div class="intro-srv-title"><span data-l="fr" class="on">Contrats & Marchés publics</span><span data-l="ar">العقود والصفقات العامة</span><span data-l="en">Contracts & Public Procurement</span></div>
+    <div class="intro-srv-desc"><span data-l="fr" class="on">Rédaction et négociation de contrats complexes. Marchés publics, partenariats public-privé et appels d'offres.</span><span data-l="ar">صياغة العقود المعقدة والتفاوض عليها. الصفقات العمومية والشراكة بين القطاعين العام والخاص والمناقصات.</span><span data-l="en">Drafting and negotiating complex contracts. Public procurement, public-private partnerships and tenders.</span></div>
+  </div>
+
+  <div class="intro-srv">
+    <span class="intro-srv-icon">👥</span>
+    <div class="intro-srv-title"><span data-l="fr" class="on">Droit social & Bancaire</span><span data-l="ar">قانون العمل والبنوك</span><span data-l="en">Labour & Banking Law</span></div>
+    <div class="intro-srv-desc"><span data-l="fr" class="on">Droit du travail, relations collectives, droit bancaire et financier, crédit documentaire et garanties bancaires.</span><span data-l="ar">قانون العمل والعلاقات الجماعية، القانون البنكي والمالي، الاعتماد المستندي والضمانات البنكية.</span><span data-l="en">Labour law, collective relations, banking and financial law, documentary credit and bank guarantees.</span></div>
+  </div>
+
+  <div class="intro-srv">
+    <span class="intro-srv-icon">🏛️</span>
+    <div class="intro-srv-title"><span data-l="fr" class="on">Droit Administratif</span><span data-l="ar">القانون الإداري</span><span data-l="en">Administrative Law</span></div>
+    <div class="intro-srv-desc"><span data-l="fr" class="on">Contentieux administratif devant les tribunaux et Conseil d'État, recours contre les décisions administratives, contrats administratifs et responsabilité de l'État.</span><span data-l="ar">التقاضي الإداري أمام المحاكم الإدارية ومجلس الدولة، الطعن في القرارات الإدارية، العقود الإدارية ومسؤولية الدولة.</span><span data-l="en">Administrative litigation before administrative courts and Council of State, appeals against administrative decisions, administrative contracts and State liability.</span></div>
+  </div>
+
+</div>
+
+<div class="intro-footer">
+  <div class="intro-territory">
+    📍 <span><span data-l="fr" class="on">Intervention sur tout le territoire national — Cour Suprême · Conseil d'État · Toutes wilayas</span><span data-l="ar">التدخل على كامل التراب الوطني — المحكمة العليا · مجلس الدولة · جميع الولايات</span><span data-l="en">Operating throughout the national territory — Supreme Court · Council of State · All wilayas</span></span>
+  </div>
+  <div class="intro-cta-btns">
+    <button class="intro-btn-main" id="intro-consult-btn">
+      <span data-l="fr" class="on">Consultation gratuite →</span>
+      <span data-l="ar">استشارة مجانية ←</span>
+      <span data-l="en">Free Consultation →</span>
+    </button>
+    <button class="intro-btn-sec" id="intro-services-btn">
+      <span data-l="fr" class="on">Nos expertises</span>
+      <span data-l="ar">خدماتنا</span>
+      <span data-l="en">Our Services</span>
+    </button>
+  </div>
+</div>
+```
+
+  </div>
+</div>
+
+<!-- JUSTICE STRIP -->
+
+<div class="justice-strip">
+  <div class="justice-img">
+    <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=900&q=70&auto=format" alt="" loading="lazy">
+    <div class="justice-img-label"><span data-l="fr" class="on">La Justice — Pilier de notre engagement</span><span data-l="ar">العدالة — ركيزة التزامنا</span><span data-l="en">Justice — The pillar of our commitment</span></div>
+  </div>
+  <div class="justice-img">
+    <img src="https://images.unsplash.com/photo-1521791055366-0d553872952f?w=900&q=70&auto=format" alt="" loading="lazy">
+    <div class="justice-img-label"><span data-l="fr" class="on">Expertise — Rigueur & Précision juridique</span><span data-l="ar">الخبرة — الصرامة والدقة القانونية</span><span data-l="en">Expertise — Legal rigour & precision</span></div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="about-grid">
+    <div class="about-visual rv">
+      <div class="logo-box"><img id="about-logo" alt="EZZEROUG EZZRAIMI" width="200"></div>
+      <div class="about-badge"><span class="badge-n">16</span><span class="badge-t"><span data-l="fr" class="on">Ans</span><span data-l="ar">سنة</span><span data-l="en">Years</span></span></div>
+    </div>
+    <div class="rv d1">
+      <div class="stag"><span><span data-l="fr" class="on">Notre Cabinet</span><span data-l="ar">مكتبنا</span><span data-l="en">Our Firm</span></span></div>
+      <h2 class="stitle"><span data-l="fr" class="on">Un partenaire <em>stratégique</em>,<br>pas un simple prestataire.</span><span data-l="ar">شريك <em>استراتيجي</em>,<br>لا مجرد مزود خدمة.</span><span data-l="en">A <em>strategic partner</em>,<br>not just a service provider.</span></h2>
+      <p class="about-desc"><span data-l="fr" class="on">Fondé à Blida, <strong>EZZEROUG EZZRAIMI &amp; PARTNERS</strong> est un cabinet d'avocats intégré, admis auprès de la Cour Suprême et du Conseil d'État. Notre équipe pluridisciplinaire accompagne les entreprises privées, les institutions publiques, les banques et les investisseurs étrangers dans toutes leurs démarches juridiques.</span><span data-l="ar">تأسس في البليدة، <strong>الزروق الزغيمي وشركاه</strong> مكتب محاماة متكامل، مقبول لدى المحكمة العليا ومجلس الدولة. يرافق فريقنا متعدد التخصصات الشركات والمؤسسات والبنوك والمستثمرين في كافة إجراءاتهم القانونية.</span><span data-l="en">Founded in Blida, <strong>EZZEROUG EZZRAIMI &amp; PARTNERS</strong> is an integrated law firm, admitted to the Supreme Court and Council of State. Our multidisciplinary team supports private companies, public institutions, banks and foreign investors in all their legal endeavors.</span></p>
+      <div class="feats">
+        <div class="feat"><div class="feat-icon">⚖️</div><div class="feat-text"><strong><span data-l="fr" class="on">Cour Suprême</span><span data-l="ar">المحكمة العليا</span><span data-l="en">Supreme Court</span></strong><span data-l="fr" class="on">Admis &amp; accrédité</span><span data-l="ar">مقبول ومعتمد</span><span data-l="en">Admitted</span></div></div>
+        <div class="feat"><div class="feat-icon">🏛️</div><div class="feat-text"><strong><span data-l="fr" class="on">Conseil d'État</span><span data-l="ar">مجلس الدولة</span><span data-l="en">Council of State</span></strong><span data-l="fr" class="on">Compétence administrative</span><span data-l="ar">الاختصاص الإداري</span><span data-l="en">Administrative</span></div></div>
+        <div class="feat"><div class="feat-icon">🌍</div><div class="feat-text"><strong><span data-l="fr" class="on">Investissement étranger</span><span data-l="ar">الاستثمار الأجنبي</span><span data-l="en">Foreign Investment</span></strong><span data-l="fr" class="on">Expertise internationale</span><span data-l="ar">خبرة دولية</span><span data-l="en">International</span></div></div>
+        <div class="feat"><div class="feat-icon">🎓</div><div class="feat-text"><strong><span data-l="fr" class="on">Master Droit affaires</span><span data-l="ar">ماجستير قانون الأعمال</span><span data-l="en">Master Business Law</span></strong><span data-l="fr" class="on">Chercheur juridique</span><span data-l="ar">باحث قانوني</span><span data-l="en">Legal researcher</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+
+<section id="services">
+  <div class="stag rv"><span><span data-l="fr" class="on">Nos Expertises</span><span data-l="ar">مجالات خبرتنا</span><span data-l="en">Practice Areas</span></span></div>
+  <h2 class="stitle rv"><span data-l="fr" class="on">Des solutions <em>intégrées</em><br>pour chaque défi juridique.</span><span data-l="ar">حلول <em>متكاملة</em><br>لكل تحدٍّ قانوني.</span><span data-l="en"><em>Integrated</em> solutions<br>for every legal challenge.</span></h2>
+  <div class="srv-grid">
+    <div class="srv-card rv d1"><div class="srv-n">01</div><div class="srv-icon">🏢</div><h3 class="srv-title"><span data-l="fr" class="on">Droit des Affaires &amp; Structuration</span><span data-l="ar">قانون الأعمال والهيكلة</span><span data-l="en">Business Law &amp; Corporate Structuring</span></h3><p class="srv-desc"><span data-l="fr" class="on">Constitution, restructuration et dissolution de sociétés. Rédaction de statuts, pactes d'associés et contrats commerciaux.</span><span data-l="ar">تأسيس الشركات وإعادة هيكلتها وتصفيتها. صياغة النظام الأساسي وعقود الشركاء والعقود التجارية.</span><span data-l="en">Company formation, restructuring and dissolution. Drafting bylaws, shareholder agreements and commercial contracts.</span></p></div>
+    <div class="srv-card rv d2"><div class="srv-n">02</div><div class="srv-icon">🌍</div><h3 class="srv-title"><span data-l="fr" class="on">Investissement Étranger</span><span data-l="ar">الاستثمار الأجنبي</span><span data-l="en">Foreign Investment</span></h3><p class="srv-desc"><span data-l="fr" class="on">Accompagnement complet des investisseurs étrangers : cadre réglementaire, autorisations, montages juridiques et suivi.</span><span data-l="ar">مرافقة شاملة للمستثمرين الأجانب: الإطار التنظيمي والتراخيص والهياكل القانونية والمتابعة.</span><span data-l="en">Full support for foreign investors: regulatory framework, permits, legal structures and ongoing monitoring.</span></p></div>
+    <div class="srv-card rv d3"><div class="srv-n">03</div><div class="srv-icon">🤝</div><h3 class="srv-title"><span data-l="fr" class="on">Arbitrage &amp; Règlement des Litiges</span><span data-l="ar">التحكيم وتسوية النزاعات</span><span data-l="en">Arbitration &amp; Dispute Resolution</span></h3><p class="srv-desc"><span data-l="fr" class="on">Représentation dans les procédures d'arbitrage national et international. Médiation et règlements amiables.</span><span data-l="ar">التمثيل في إجراءات التحكيم الوطني والدولي. الوساطة والتسويات الودية.</span><span data-l="en">Representation in national and international arbitration. Mediation and amicable settlements.</span></p></div>
+    <div class="srv-card rv d1"><div class="srv-n">04</div><div class="srv-icon">💰</div><h3 class="srv-title"><span data-l="fr" class="on">Conseil Fiscal &amp; Douanier</span><span data-l="ar">الاستشارة الضريبية والجمركية</span><span data-l="en">Tax &amp; Customs Advisory</span></h3><p class="srv-desc"><span data-l="fr" class="on">Optimisation fiscale, contentieux fiscal, régimes douaniers préférentiels et assistance lors des contrôles.</span><span data-l="ar">التحسين الضريبي والنزاعات الجبائية والأنظمة الجمركية التفضيلية والمساعدة خلال المراجعات.</span><span data-l="en">Tax optimization, tax disputes, preferential customs regimes and audit assistance.</span></p></div>
+    <div class="srv-card rv d2"><div class="srv-n">05</div><div class="srv-icon">🏗️</div><h3 class="srv-title"><span data-l="fr" class="on">Droit Immobilier &amp; Litiges Fonciers</span><span data-l="ar">القانون العقاري والنزاعات العقارية</span><span data-l="en">Real Estate &amp; Property Disputes</span></h3><p class="srv-desc"><span data-l="fr" class="on">Transactions immobilières, baux commerciaux, permis de construire et représentation dans les litiges fonciers.</span><span data-l="ar">المعاملات العقارية وعقود الإيجار التجاري ورخص البناء والتمثيل في النزاعات العقارية.</span><span data-l="en">Real estate transactions, commercial leases, building permits and property dispute representation.</span></p></div>
+    <div class="srv-card rv d3"><div class="srv-n">06</div><div class="srv-icon">👥</div><h3 class="srv-title"><span data-l="fr" class="on">Droit Social &amp; RH</span><span data-l="ar">قانون العمل والموارد البشرية</span><span data-l="en">Labour Law &amp; HR</span></h3><p class="srv-desc"><span data-l="fr" class="on">Contrats de travail, règlements intérieurs, gestion des conflits et représentation devant les tribunaux du travail.</span><span data-l="ar">عقود العمل والأنظمة الداخلية وإدارة النزاعات والتمثيل أمام محاكم العمل.</span><span data-l="en">Employment contracts, internal regulations, dispute management and labour court representation.</span></p></div>
+    <div class="srv-card rv d2"><div class="srv-n">07</div><div class="srv-icon">📋</div><h3 class="srv-title"><span data-l="fr" class="on">Contrats &amp; Négociation</span><span data-l="ar">العقود والتفاوض</span><span data-l="en">Contracts &amp; Negotiation</span></h3><p class="srv-desc"><span data-l="fr" class="on">Rédaction, révision et négociation de tous types de contrats : marchés publics, partenariats et accords de confidentialité.</span><span data-l="ar">صياغة ومراجعة والتفاوض على جميع أنواع العقود: الصفقات العامة والشراكات واتفاقيات السرية.</span><span data-l="en">Drafting, reviewing and negotiating all contract types: public procurement, partnerships and NDAs.</span></p></div>
+    <div class="srv-card rv d3"><div class="srv-n">08</div><div class="srv-icon">🏛️</div><h3 class="srv-title"><span data-l="fr" class="on">Droit Administratif &amp; Contentieux</span><span data-l="ar">القانون الإداري والمنازعات</span><span data-l="en">Administrative Law &amp; Disputes</span></h3><p class="srv-desc"><span data-l="fr" class="on">Recours en annulation et en plein contentieux devant les tribunaux administratifs et le Conseil d'État. Contrats administratifs, marchés publics, expropriation, responsabilité administrative et litiges avec les collectivités locales.</span><span data-l="ar">دعاوى الإلغاء والقضاء الكامل أمام المحاكم الإدارية ومجلس الدولة. العقود الإدارية والصفقات العمومية ونزع الملكية والمسؤولية الإدارية والنزاعات مع الجماعات المحلية.</span><span data-l="en">Annulment and full jurisdiction appeals before administrative courts and the Council of State. Administrative contracts, public procurement, expropriation, administrative liability and disputes with local authorities.</span></p></div>
+  </div>
+</section>
+
+<!-- TEAM -->
+
+<section id="team">
+  <div class="team-top">
+    <div>
+      <div class="stag rv"><span><span data-l="fr" class="on">Notre Équipe</span><span data-l="ar">فريقنا</span><span data-l="en">Our Team</span></span></div>
+      <h2 class="stitle rv"><span data-l="fr" class="on">Des juristes <em>engagés</em><br>à votre service.</span><span data-l="ar">فريق قانوني <em>ملتزم</em><br>في خدمتكم.</span><span data-l="en">Dedicated <em>professionals</em><br>at your service.</span></h2>
+      <p class="slead rv"><span data-l="fr" class="on">Une équipe pluridisciplinaire d'avocats, consultants et assistants — offrant un service intégré et réactif.</span><span data-l="ar">فريق متعدد التخصصات من محامين ومستشارين ومساعدين — يقدم خدمة متكاملة وسريعة.</span><span data-l="en">A multidis
